@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
     <title>web_chat_app</title>
+
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-    <script type="text/javascript">
-      var socket = io();
-      socket.on('connect', () => {
-        console.log('Connected to the server');
-        socket.on('disconnect',() => {
-          console.log('Disconnected from server');
-        });
-      });
-    </script>
+
+    <script type="text/javascript" src="/js/main.js"></script>
+    
+    <link rel="icon" type="icon/png" href="favicon.png">
   </head>
+
   <body>
 	<p>Welcome to the Anonymous Web chat</p>
   </body>
+
 </html>
