@@ -4,10 +4,12 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-	"start" : "node server/server.js",
+    "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },"dependencies": {
-    "express": "^4.16.4"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
   },
   "author": "zero",
   "license": "ISC"

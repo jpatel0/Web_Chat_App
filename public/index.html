@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>web_chat_app</title>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      var socket = io();
+      socket.on('connect', () => {
+        console.log('Connected to the server');
+        socket.on('disconnect',() => {
+          console.log('Disconnected from server');
+        });
+      });
+    </script>
   </head>
   <body>
 	<p>Welcome to the Anonymous Web chat</p>
