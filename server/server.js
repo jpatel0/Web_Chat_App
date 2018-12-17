@@ -14,14 +14,29 @@ var io = socketIO(server);
 io.on('connection', (socket) => {
   console.log('A new user connected');
 
+  socket.emit('newMessage',{
+    from : 'Admin',
+    to : 'client',
+    message : "Welcome to the Chat App",
+    createdAt : new Date().getTime()
+  });
+
+  socket.broadcast.emit('newMessage',{
+    from : 'user',
+    to : 'everyone',
+    message : "A user has joined",
+    createdAt : new Date().getTime()
+  });
+
   socket.on('createMessage',(message) => {
-    message.createdAt = new Date();
-    socket.emit('newMessage',message);
+    message.createdAt = new Date().getTime();
+    io.emit('newMessage',message);
   });
 
   socket.on('disconnect',() => {
     console.log('A client disconnected');
   });
+
 });
 //console.log(publicPath);
 
