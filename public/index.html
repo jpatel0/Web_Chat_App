@@ -5,15 +5,26 @@
     <meta charset="utf-8">
     <title>Web Chat App</title>
 
-    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-
-    <script type="text/javascript" src="/js/main.js"></script>
 
     <link rel="icon" type="icon/png" href="favicon.png">
   </head>
 
   <body>
 	   <p>Welcome to the Anonymous Web chat</p>
+
+     <ol id="messageList">
+     </ol>
+
+     <form id="messageForm">
+       <input type="text" name="message" placeholder="Message Text">
+       <button type="button" name="Send Message">Send Message</button>
+     </form>
+
+
+
+     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+     <script type="text/javascript" src="/js/libs/jquery-3.3.1.min.js"></script>
+     <script type="text/javascript" src="/js/main.js"></script>
   </body>
 
 </html>
