@@ -1,31 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Web Chat App</title>
 
-
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="icon/png" href="favicon.png">
-  </head>
+    <script id="message-template" type="text/template">
+        <li class="message">
+            <div class="message__title">
+                <h4>{{from}}</h4>
+                <span>{{createdAt}}</span>
+            </div>
+            <div class="message__body">
+                <p>{{text}}</p>
+            </div>
+        </li>
+    </script>
 
-  <body>
-	   <p>Welcome to the Anonymous Web chat</p>
+    <script id="message-location-template" type="text/template">
+        <li class="message">
+            <div class="message__title">
+                <h4>{{from}}</h4>
+                <span>{{createdAt}}</span>
+            </div>
+            <div class="message__body">
+                <p><a href="{{url}}" target="_blank">My Current Location</a></p>
+            </div>
+        </li>
+    </script>
+</head>
 
-     <ol id="messageList">
-     </ol>
+<body class="chat">
 
-     <form id="messageForm">
-       <input type="text" name="message" placeholder="Message Text">
-       <button type="submit" name="Send Message">Send Message</button>
-     </form>
+    <div class="chat__sidebar">
+        <h3>People</h3>
+        <div id="users">
 
-     <button id="sendLocation" name="sendLoc">Send Location</button>
+        </div>
+    </div>
 
+    <div class="chat__main">
+        <ol id="messageList" class="chat__messages"></ol>
 
-     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
-     <script type="text/javascript" src="/js/libs/jquery-3.3.1.min.js"></script>
-     <script type="text/javascript" src="/js/main.js"></script>
-  </body>
+        <div class="chat__footer">
+            <form id="messageForm">
+                <input type="text" name="message" placeholder="Message Text" autofocus autocomplete="off">
+                <button type="submit" name="Send Message">Send Message</button>
+            </form>
+
+            <button id="sendLocation" name="sendLoc">Send Location</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/js/libs/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/libs/moment.js"></script>
+    <script type="text/javascript" src="/js/libs/mustache.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+
+</body>
 
 </html>
