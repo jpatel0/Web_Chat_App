@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Web Chat App</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="icon/png" href="favicon.png">
+    <script id="message-template" type="text/template">
+        <li class="message">
+            <div class="message__title">
+                <h4>{{from}}</h4>
+                <span>{{createdAt}}</span>
+            </div>
+            <div class="message__body">
+                <p>{{text}}</p>
+            </div>
+        </li>
+    </script>
+
+    <script id="message-location-template" type="text/template">
+        <li class="message">
+            <div class="message__title">
+                <h4>{{from}}</h4>
+                <span>{{createdAt}}</span>
+            </div>
+            <div class="message__body">
+                <p><a href="{{url}}" target="_blank">My Current Location</a></p>
+            </div>
+        </li>
+    </script>
+</head>
+
+<body class="chat">
+
+    <div class="chat__sidebar">
+        <h3>People</h3>
+        <div id="users">
+
+        </div>
+    </div>
+
+    <div class="chat__main">
+        <ol id="messageList" class="chat__messages"></ol>
+
+        <div class="chat__footer">
+            <form id="messageForm">
+                <input type="text" name="message" placeholder="Message Text" autofocus autocomplete="off">
+                <button type="submit" name="Send Message">Send Message</button>
+            </form>
+
+            <button id="sendLocation" name="sendLoc">Send location</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./js/libs/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./js/libs/moment.js"></script>
+    <script type="text/javascript" src="./js/libs/mustache.js"></script>
+    <script type="text/javascript" src="./js/libs/deparam.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+
+</body>
+
+</html>
