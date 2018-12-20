@@ -18,6 +18,15 @@ socket.on('disconnect', function () {
     console.log('Disconnected from server');
 });
 
+socket.on('updateUserList', function (users) {
+    var ol = jQuery('<ol></ol>');
+    
+    users.forEach(userName => {
+        ol.append(jQuery('<li></li>').text(userName));
+    });
+    jQuery('#users').html(ol);
+});
+
 function scrollToBottom() {
     var messages = jQuery('#messageList');
     var newMessage = messages.children('li:last-child');
