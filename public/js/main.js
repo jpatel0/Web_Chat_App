@@ -6,7 +6,7 @@ socket.on('connect', function () {
     socket.emit('join', param, function(error) {
         if (error){
             alert(error);
-            //window.location.href = '/';
+            window.location.href = '/';
         }else { 
             console.log('Welcome');
             
@@ -78,7 +78,6 @@ jQuery('#messageForm').on('submit', function (event) {
     event.preventDefault();
     var messageSelector = jQuery('[name=message]');
     socket.emit('createMessage', {
-        from: 'user',
         text: messageSelector.val()
     });
     messageSelector.val('');
